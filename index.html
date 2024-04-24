@@ -59,20 +59,18 @@
                         class="text-[#1DD100]">Hero Travels</span></h1>
                 <p class="text-xs lg:text-lg lg:mt-3">Yes, you can run unit tests and view the results directly within
                     the app. <br> The integrated testing features allow for a streamlined .</p>
-                <button
-                    class="btn-md rounded border-[#1DD100] bg-[#1DD100] hover:border-[#1DD100] hover:bg-[#1DD100] lg:mt-3">Buy
-                    Tickets</button>
+                <button onclick="buyTicketSection()" class="btn-md rounded border-[#1DD100] bg-[#1DD100] hover:border-[#1DD100] hover:bg-[#1DD100] lg:mt-3">Buy Tickets</button>
             </div>
         </div>
     </header>
     <!--  -->
 
     <!-- Main Section -->
-    <main class="my-12 lg:my-24">
+    <main class="mt-12 lg:mt-24">
         <!-- Offer Section -->
         <div class="offer-div text-center px-3 lg:px-32 mb-20">
             <h3 class="text-4xl font-bold">Best offers for you</h3>
-            <div class="lg:flex justify-between">
+            <div class="lg:flex gap-5 justify-between">
                 <div
                     class="bg-[#FFBF0F] flex lg:w-[30rem] h-[220px] justify-between  relative items-center mt-5 rounded-3xl">
                     <div class="pl-5 lg:pl-14">
@@ -133,7 +131,7 @@
                         <div>
                             <button
                                 class="rounded py-3 px-5 border-[#1DD100] bg-[#1cd10039] text-[#1DD100] flex gap-3 items-center">
-                                <img src="images/seat-green.png" alt="">40 Seats left</button>
+                                <img src="images/seat-green.png" alt=""><span id="ticket-count">40</span> Seats left</button>
                         </div>
                     </div>
 
@@ -168,7 +166,7 @@
 
 
             <!-- Selecting Seats Section -->
-            <div class="selecting-seats-sec bg-white px-8 lg:flex justify-between my-8 rounded-3xl py-8">
+            <div id="buy-ticket-section" class="selecting-seats-sec bg-white px-8 lg:flex justify-between my-8 rounded-3xl py-8">
                 <div>
                     <div class="">
                         <div class="py-3 my-3 border-b-2 border-dashed">
@@ -282,23 +280,23 @@
                             <div class="label">
                                 <span class="label-text font-bold">Passenger Name*</span>
                             </div>
-                            <input required type="text" placeholder="Enter your name"
+                            <input id="inputName" onkeyup="onKeyUp()" required type="text" placeholder="Enter your name"
                                 class="input input-bordered w-full" />
                         </label>
                         <label class="form-control w-full">
                             <div class="label">
                                 <span class="label-text font-bold">Phone Number*</span>
                             </div>
-                            <input required type="number" placeholder="Enter your phone number"
+                            <input id="inputNumber" onkeyup="onKeyUp()"  required type="number" placeholder="Enter your phone number"
                                 class="input input-bordered w-full" />
                         </label>
                         <label class="form-control w-full">
                             <div class="label">
                                 <span class="label-text font-bold">Email ID</span>
                             </div>
-                            <input type="email" placeholder="Enter your email id" class="input input-bordered w-full" />
+                            <input id="inputEmail" type="email" placeholder="Enter your email id" class="input input-bordered w-full" />
                         </label>
-                        <input onclick="success.showModal()"  type="submit" value="Next"
+                        <input disabled id="countinue-purchase-btn" onclick="success.showModal()"  type="submit" value="Next"
                             class="bg-[#1cd100a3] btn hover:cursor-pointer hover:bg-[#1DD100] py-3 text-white mt-5 w-full rounded-lg" />
                     </div>
                 </div>
@@ -337,18 +335,44 @@
                 <h3 class="text-[#27AE60] text-3xl mt-3 mb-5">SUCCESS</h3>
                 <h3 class="text-2xl">Thank you for Booking Our Bus Seats. </h3>
                 <h3 class="text-2xl">We are working hard to find the best service and deals for you. </h3>
-                <p class="text-lg text-gray-500">Shortly you will find a confirmation in your email.</p>
+                <p class="text-lg mt-3 text-gray-500">Shortly you will find a confirmation in your email.</p>
                 <div class="modal-action">
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
-                        <button class="btn rounded-full px-8 bg-[#27ae5fc5] hover:bg-[#27AE60]">Continue</button>
+                        <button onclick="continueSucess()" class="btn rounded-full px-8 bg-[#27ae5fc5] hover:bg-[#27AE60]">Continue</button>
                     </form>
                 </div>
             </div>
         </dialog>
     </main>
-    <footer>
 
+    <!-- Footer -->
+    <footer class="bg-[#030712] px-5 py-8 lg:px-32 lg:py-16 text-white" >
+        <div class="flex flex-col lg:flex-row gap-5 justify-between border-b-2 border-dashed  pb-14 ">
+            <div>
+                <h3 class="text-4xl font-bold mb-3">Hero Travels</h3>
+                <p class="text-sm">Hero Travels is a digital platform to make your daily commuting better.</p>
+            </div>
+            <div>
+                <p>Download our app</p>
+                <div class="bg-black flex items-center gap-3 w-fit border rounded p-3 border-white">
+                    <img src="images/playstore.png" alt="">
+                    <div class="">
+                        <p class="text-xs">Get it on</p>
+                        <h3>Google Play</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="mt-14 flex flex-col lg:flex-row gap-5 justify-between">
+            <div><p class="text-sm">©All rights reserved, Hero Travels services limited.2024</p></div>
+            <div class="flex gap-5 text-sm">
+                <a href="">Terms & condition</a>
+                <a href="">Return & refund policy</a>
+                <a href="">Privacy policy</a>
+            </div>
+        </div>
     </footer>
 
 
